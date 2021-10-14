@@ -1,6 +1,6 @@
-const form = document.querySelector("#autito-form");
-const cadena = document.querySelector("#comandos");
-const div = document.querySelector("#resultado-div");
+// const form = document.querySelector("#autito-form");
+// const cadena = document.querySelector("#comandos");
+// const div = document.querySelector("#resultado-div");
 let x = 0
 let y = 0
 let xIn, yIn
@@ -42,6 +42,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(y < y_dim_mat)
                         y = y + 1
+                if(movimiento == 'S')
+                    if(y < y_dim_mat + 2)
+                        y = y + 2
             }
             else if(direccion == 'S'){
                 if(movimiento == 'I')
@@ -51,6 +54,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(y > 0)
                         y = y -1
+                // if(movimiento == 'S')
+                //     if(y > 2)
+                //         y = y - 2
             }
             else if(direccion == 'E'){
                 if(movimiento == 'I')
@@ -60,6 +66,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(x < x_dim_mat)
                         x = x + 1
+                // if(movimiento == 'S')
+                //     if(x < x_dim_mat + 2)
+                //         y = y + 2
             }
             else if(direccion == 'O'){
                 if(movimiento == 'I')
@@ -69,12 +78,15 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(x > 0)
                         x = x - 1
+                // if(movimiento == 'S')
+                //     if(x > 2)
+                //         x = x - 2
             }
         });
     }
 }
 
-function Autito(cadena) {
+export function Autito(cadena) {
     let cadenaDividida
     cadenaDividida =  cadena.split("/")
 
@@ -98,11 +110,11 @@ function Autito(cadena) {
     }
 }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
     
-    Autito(cadena.value);
-    posIn = (cadena.value).split();
-    let resp = "La posicion inicial es: " + xIn + "," + yIn + dirInicial + "<br>" + " Comandos: " + comandos +"<br>" + " La posicion final es: " + x + "," + y + direccion
-    div.innerHTML = "<p>" + resp + "</p>";
-});
+//     Autito(cadena.value);
+//     posIn = (cadena.value).split();
+//     let resp = "La posicion inicial es: " + xIn + "," + yIn + dirInicial + "<br>" + " Comandos: " + comandos +"<br>" + " La posicion final es: " + x + "," + y + direccion
+//     div.innerHTML = "<p>" + resp + "</p>";
+// });
